@@ -6,35 +6,35 @@ import java.util.List;
  */
 public class Flock {
     private Print p;
-    public List<Boid> boids;
-    public List<trail> trailPop;
+    public List<Boid> b;
+    public List<trail> t;
 
     Flock(Print _p) {
         p = _p;
-        boids = new ArrayList<>();
-        trailPop = new ArrayList<>();
+        b = new ArrayList<>();
+        t = new ArrayList<>();
     }
 
-    public void run() {
-        for (Boid var1 : boids) {
-            var1.run();
-            var1.draw();
+    public void r() {
+        for (Boid var1 : b) {
+            var1.r();
+            var1.d();
         }
     }
 
-    public void addBoid( Boid var1) {
-        boids.add(var1);
+    public void aB( Boid var1) {
+        b.add(var1);
     }
 
-    public void removeBoid( Boid var1) {
-        boids.remove(var1);
+    public void rB( Boid var1) {
+        b.remove(var1);
     }
 
-    public void addTrail( trail var1) {
-        trailPop.add(var1);
+    public void aT( trail var1) {
+        t.add(var1);
     }
 
-    public void removeTrail( trail var1) {
-        trailPop.remove(var1);
+    public void rt( trail var1) {
+        t.remove(var1);
     }
 }

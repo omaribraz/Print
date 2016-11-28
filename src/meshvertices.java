@@ -20,17 +20,17 @@ public class meshvertices extends Vec3D {
         takencnt = 0;
     }
 
-    public void update(){
+    public void u(){
         if(takencnt>4){
             p.vertexpop.remove(this);
         }
-//        render();
+//        re();
 
     }
 
 
 
-    private void render() {
+    private void re() {
         if (taken == 1) {
             p.stroke(255, 255);
             p.strokeWeight(20);

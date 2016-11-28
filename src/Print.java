@@ -140,22 +140,22 @@ public class Print extends PApplet {
 
         for (int i = 0; i < 15; i++) {
             Vec3D a = randomitem(pts);
-            flock.addBoid(new Boid(this, a, 1));
+            flock.aB(new Boid(this, a, 1));
         }
 
         for (int i = 0; i < 100; i++) {
             Vec3D a = randomitem(pts);
-            flock.addBoid(new Boid(this, a, 2));
+            flock.aB(new Boid(this, a, 2));
         }
 
         for (int i = 0; i < 10; i++) {
             Vec3D a = randomitem(pts);
-            flock.addBoid(new Boid(this, a, 7));
+            flock.aB(new Boid(this, a, 7));
         }
 
         for (int i = 0; i < 0; i++) {
             Vec3D a = randomitem(pts);
-            flock.addBoid(new Boid(this, a, 8));
+            flock.aB(new Boid(this, a, 8));
         }
 
         videoExport = new VideoExport(this, "basic.mp4");
@@ -166,9 +166,9 @@ public class Print extends PApplet {
         background(0);
 
         if (frameCount < 10) {
-            for (int i = 0; i < flock.boids.size(); i++) {
-                Boid b = flock.boids.get(i);
-                b.checkMesh();
+            for (int i =0;i<flock.b.size();i++) {
+                Boid var1 = flock.b.get(i);
+                var1.cM();
             }
         }
 
@@ -183,11 +183,11 @@ public class Print extends PApplet {
                 List<Boid> pathboid = new ArrayList<>();
                 List<Boid> pathroom = new ArrayList<>();
 
-                for (Boid a : flock.boids) {
-                    if (a.type == 7) {
+                for (Boid a : flock.b) {
+                    if (a.t == 7) {
                         pathboid.add(a);
                     }
-                    if (a.type == 8) {
+                    if (a.t == 8) {
                         pathroom.add(a);
                     }
                 }
@@ -221,10 +221,10 @@ public class Print extends PApplet {
                     drawcorridor(pathagtpts);
                 }
             }
-            flock.run();
-            if (boidoctre) boidoctree.run();
+            flock.r();
+            if (boidoctre) boidoctree.r();
         }
-        //if octree.draw();
+        //if octree.d();
 
         pushMatrix();
         fill(40, 120);
@@ -235,7 +235,7 @@ public class Print extends PApplet {
 
         for (int i = 0; i < vertexpop.size(); i++) {
             meshvertices a = vertexpop.get(i);
-            a.update();
+            a.u();
         }
 
 //       videoExport.saveFrame();
@@ -336,7 +336,7 @@ public class Print extends PApplet {
             Normal.put(var3, var7);
             meshvertices var11 = new meshvertices(this, var3, var10, var7);
             if(i%5==0)vertexpop.add(var11);
-            meshoctree.addPts(var11);
+            meshoctree.aP(var11);
         }
 
 
@@ -411,7 +411,7 @@ public class Print extends PApplet {
 
             if (ballmove) {
                 for (Pathagent var2 : var1) {
-                    var2.run();
+                    var2.r();
                 }
 
             }

@@ -14,29 +14,29 @@ public class Octree extends PointOctree {
         p = _p;
     }
 
-    private void addBoid(Boid var1) {
+    private void aB(Boid var1) {
         addPoint(var1);
     }
 
-    public void addPts(meshvertices var1){addPoint(var1);}
+    public void aP(meshvertices var1){addPoint(var1);}
 
-    public void run() {
-        updateTree();
+    public void r() {
+        uT();
     }
 
-    private void updateTree() {
+    private void uT() {
         empty();
-        for (Boid var1 : p.flock.boids) {
-            addBoid(var1);
+        for (Boid var1 : p.flock.b) {
+            aB(var1);
         }
     }
 
-    public void draw() {
-        drawNode(this);
+    public void d() {
+        dN(this);
         System.out.println("p = " + this.getNumChildren());
     }
 
-    private void drawNode(PointOctree n) {
+    private void dN(PointOctree n) {
         if (n.getNumChildren() > 0) {
             p.noFill();
             p.stroke(255);
@@ -46,7 +46,7 @@ public class Octree extends PointOctree {
             p.popMatrix();
             PointOctree[] childNodes = n.getChildren();
             for (int i = 0; i < 8; i++) {
-                if (childNodes[i] != null) drawNode(childNodes[i]);
+                if (childNodes[i] != null) dN(childNodes[i]);
             }
         }
     }

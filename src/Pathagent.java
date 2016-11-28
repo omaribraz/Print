@@ -30,19 +30,19 @@ public class Pathagent extends Vec3D {
         this.z += 10;
     }
 
-    public void run() {
-        if (type == 1) move();
-        update();
-        render();
+    public void r() {
+        if (type == 1) m();
+        u();
+        re();
     }
 
-    private void update() {
+    private void u() {
         vel.limit(80.7f);
         this.addSelf(vel);
         vel.scaleSelf(0);
     }
 
-    private void move() {
+    private void m() {
         List<Vec3D> var1 = null;
 
         var1 = p.meshoctree.getPointsWithinSphere(this.copy(), dia);
@@ -82,7 +82,7 @@ public class Pathagent extends Vec3D {
         }
     }
 
-    private void render() {
+    private void re() {
 //        p.stroke(255, 0, 0);
 //        p.pushMatrix();
 //        p.translate(x, y, z);
